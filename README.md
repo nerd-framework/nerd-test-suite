@@ -1,2 +1,2 @@
 # nerd-test-suite
-Test Nerd Framework application using this suite.
+Test application on Nerd Framework using Nerd Test Suite.
