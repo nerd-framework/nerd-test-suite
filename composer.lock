@@ -1,0 +1,105 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "c9692efb2ceb158f82ef0ba123660431",
+    "content-hash": "e44056f332727e356a57c17dc7e95ef7",
+    "packages": [
+        {
+            "name": "nerd-framework/nerd-contracts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nerd-framework/nerd-contracts.git",
+                "reference": "1d9db11de6edc61f16d5e86e5fc1453b984e58f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/1d9db11de6edc61f16d5e86e5fc1453b984e58f4",
+                "reference": "1d9db11de6edc61f16d5e86e5fc1453b984e58f4",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Lakhtadyr",
+                    "email": "roman.lakhtadyr@gmail.com"
+                }
+            ],
+            "description": "Framework contracts used in Nerd Framework",
+            "time": "2016-10-13 21:10:07"
+        },
+        {
+            "name": "nerd-framework/nerd-http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nerd-framework/nerd-http.git",
+                "reference": "04430c3ae357ef6028e42bd8271c3ee658d18035"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-http/zipball/04430c3ae357ef6028e42bd8271c3ee658d18035",
+                "reference": "04430c3ae357ef6028e42bd8271c3ee658d18035",
+                "shasum": ""
+            },
+            "require": {
+                "nerd-framework/nerd-contracts": "dev-master",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "phpunit/phpunit": "^5.5",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [],
+                "psr-4": {
+                    "": "src/",
+                    "tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Lakhtadyr",
+                    "email": "roman.lakhtadyr@gmail.com"
+                }
+            ],
+            "description": "HTTP Request and Response for Nerd Framework",
+            "time": "2016-10-16 10:23:43"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "nerd-framework/nerd-contracts": 20,
+        "nerd-framework/nerd-http": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
