@@ -10,9 +10,9 @@ namespace Nerd\Framework\TestSuite;
 
 use Nerd\Framework\ApplicationContract;
 use Nerd\Framework\Http\Request\Request;
-use Nerd\Framework\TestSuite\Result\Result;
+use Nerd\Framework\TestSuite\Result\BaseResult;
 
-class Runner
+class Browser implements CrudContract
 {
     /**
      * @var ApplicationContract
@@ -32,7 +32,7 @@ class Runner
         $request = Request::create($path, $method);
         $response = $this->application->handle($request);
         $response->prepare($request);
-        return new Result($response);
+        return new BaseResult($response);
     }
 
     public function get($path)
@@ -40,8 +40,18 @@ class Runner
         return $this->run($path, 'GET');
     }
 
-    public function post($path)
+    public function post($path, $data)
     {
         return $this->run($path, 'POST');
+    }
+
+    public function put($path, $data)
+    {
+        return $this->run($path, 'PUT');
+    }
+
+    public function delete($path)
+    {
+        return $this->run($path, 'DELETE');
     }
 }
