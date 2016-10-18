@@ -4,6 +4,7 @@ namespace Nerd\Framework\TestSuite\NavigatorResult;
 
 use Nerd\Framework\Http\Response\BaseResponseContract;
 use Nerd\Framework\Http\Response\JsonResponse;
+use PHPUnit\Framework\TestCase;
 
 class BaseResult implements BaseResultContract
 {
@@ -13,9 +14,15 @@ class BaseResult implements BaseResultContract
     protected $response;
 
     /**
-     * @param $response
+     * @var TestCase
      */
-    public function __construct(BaseResponseContract $response)
+    protected $testCase;
+
+    /**
+     * @param BaseResponseContract $response
+     * @param TestCase $testCase
+     */
+    public function __construct(BaseResponseContract $response, TestCase $testCase)
     {
         $this->response = $response;
     }
@@ -26,10 +33,7 @@ class BaseResult implements BaseResultContract
      */
     public function expectStatusCode($statusCode)
     {
-        assert(
-            $statusCode == $this->response->getStatusCode(),
-            "Expected status code is $statusCode but actual is {$this->response->getStatusCode()}"
-        );
+        $this->testCase->assertEquals($statusCode, $this->response->getStatusCode());
 
         return $this;
     }
@@ -40,7 +44,7 @@ class BaseResult implements BaseResultContract
      */
     public function expectSetHeader($name)
     {
-        assert($this->response->hasHeader($name), "Header $name is not set");
+        $this->testCase->assertTrue($this->response->hasHeader($name));
 
         return $this;
     }
@@ -51,7 +55,7 @@ class BaseResult implements BaseResultContract
      */
     public function expectSetCookie($name)
     {
-        assert($this->response->hasCookie($name), "Cookie $name is not set");
+        $this->testCase->assertTrue($this->response->hasCookie($name));
 
         return $this;
     }
@@ -62,18 +66,8 @@ class BaseResult implements BaseResultContract
      */
     public function expectContentType($contentType)
     {
-        assert(
-            $contentType == $this->response->getContentType(),
-            "Expected content-type is $contentType but actual is {$this->response->getContentType()}"
-        );
+        $this->testCase->assertEquals($contentType, $this->response->getContentType());
 
         return $this;
-    }
-
-    public function asJson()
-    {
-        assert($this->response instanceof JsonResponse);
-
-        return new JsonResult($this->response);
     }
 }

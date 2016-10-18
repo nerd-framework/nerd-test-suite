@@ -11,7 +11,9 @@ class JsonResult extends BaseResult implements JsonResultContract
     public function containsNode($path)
     {
         $accessor = $this->makeValueAccessor($path);
-        assert(!is_null($accessor($this->response->getData())));
+
+        $this->testCase->assertNotNull($accessor($this->response->getData()));
+
         return $this;
     }
 
@@ -24,7 +26,8 @@ class JsonResult extends BaseResult implements JsonResultContract
     {
         $accessor = $this->makeValueAccessor($path);
         $actual = $accessor($this->response->getData());
-        assert($expected === $actual);
+
+        $this->testCase->assertEquals($expected, $actual);
 
         return $this;
     }

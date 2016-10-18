@@ -8,6 +8,7 @@ use Nerd\Framework\Http\Request\RequestContract;
 use Nerd\Framework\Http\Response\JsonResponse;
 use Nerd\Framework\Http\Response\PlainResponse;
 use Nerd\Framework\TestSuite\NavigatorResult\BaseResult;
+use PHPUnit\Framework\TestCase;
 
 class Navigator implements NavigatorContract
 {
@@ -17,11 +18,18 @@ class Navigator implements NavigatorContract
     private $application;
 
     /**
-     * @param ApplicationContract $application
+     * @var TestCase
      */
-    public function __construct(ApplicationContract $application)
+    private $testCase;
+
+    /**
+     * @param ApplicationContract $application
+     * @param TestCase $testCase
+     */
+    public function __construct(ApplicationContract $application, TestCase $testCase)
     {
         $this->application = $application;
+        $this->testCase = $testCase;
     }
 
     /**
@@ -35,7 +43,7 @@ class Navigator implements NavigatorContract
         $request = Request::create($path, $method, $data);
         $response = $this->application->handle($request);
 
-        return new NavigatorResult\PlainResult($response);
+        return new NavigatorResult\PlainResult($response, $this->testCase);
     }
 
     /**
@@ -51,6 +59,6 @@ class Navigator implements NavigatorContract
 
         assert($response instanceOf JsonResponse);
 
-        return new NavigatorResult\JsonResult($response);
+        return new NavigatorResult\JsonResult($response, $this->testCase);
     }
 }

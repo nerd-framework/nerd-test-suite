@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: roman
- * Date: 10/18/16
- * Time: 4:07 PM
- */
 
 namespace Nerd\Framework\TestSuite\NavigatorResult;
-
 
 class PlainResult extends BaseResult implements PlainResultContract
 {
@@ -17,7 +10,8 @@ class PlainResult extends BaseResult implements PlainResultContract
      */
     public function contains($text)
     {
-        assert(false !== strpos($this->response->getContents(), $text));
+        $this->testCase->assertContains($text, $this->response->getContents());
+
         return $this;
     }
 
@@ -27,7 +21,8 @@ class PlainResult extends BaseResult implements PlainResultContract
      */
     public function equalsTo($text)
     {
-        assert($text === $this->response->getContents());
+        $this->testCase->assertEquals($text, $this->response->getContents());
+
         return $this;
     }
 
@@ -36,7 +31,8 @@ class PlainResult extends BaseResult implements PlainResultContract
      */
     public function notEmpty()
     {
-        assert(!empty($this->response->getContents()));
+        $this->testCase->assertNotEmpty($this->response->getContents());
+
         return $this;
     }
 }
