@@ -2,20 +2,20 @@
 
 namespace Nerd\Framework\TestSuite\NavigatorResult;
 
+use Nerd\Framework\Http\Response\BaseResponseContract;
 use Nerd\Framework\Http\Response\JsonResponse;
-use Nerd\Framework\Http\Response\Response;
 
 class BaseResult implements BaseResultContract
 {
     /**
-     * @var Response
+     * @var BaseResponseContract
      */
     protected $response;
 
     /**
      * @param $response
      */
-    public function __construct(Response $response)
+    public function __construct(BaseResponseContract $response)
     {
         $this->response = $response;
     }
