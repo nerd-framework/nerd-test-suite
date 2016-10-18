@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-contracts.git",
-                "reference": "93587236ef452fba1c15281188e71e5eb96a3947"
+                "reference": "0f7502225e7b5c7bdfa3d15499ed9dc49dd3fc3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/93587236ef452fba1c15281188e71e5eb96a3947",
-                "reference": "93587236ef452fba1c15281188e71e5eb96a3947",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/0f7502225e7b5c7bdfa3d15499ed9dc49dd3fc3f",
+                "reference": "0f7502225e7b5c7bdfa3d15499ed9dc49dd3fc3f",
                 "shasum": ""
             },
             "require-dev": {
@@ -43,7 +43,7 @@
                 }
             ],
             "description": "Framework contracts used in Nerd Framework",
-            "time": "2016-10-16 12:27:25"
+            "time": "2016-10-18 11:22:15"
         },
         {
             "name": "nerd-framework/nerd-http",
@@ -51,12 +51,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-http.git",
-                "reference": "585ca298759ffcae44a76ba350bc0735d10d605c"
+                "reference": "7ff8bb378c3c5234d566575ced35ded5cae54a64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-http/zipball/585ca298759ffcae44a76ba350bc0735d10d605c",
-                "reference": "585ca298759ffcae44a76ba350bc0735d10d605c",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-http/zipball/7ff8bb378c3c5234d566575ced35ded5cae54a64",
+                "reference": "7ff8bb378c3c5234d566575ced35ded5cae54a64",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +88,7 @@
                 }
             ],
             "description": "HTTP Request and Response for Nerd Framework",
-            "time": "2016-10-16 18:04:08"
+            "time": "2016-10-17 19:21:48"
         }
     ],
     "packages-dev": [],
