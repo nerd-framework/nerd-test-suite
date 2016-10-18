@@ -3,7 +3,10 @@
 namespace Nerd\Framework\TestSuite;
 
 use Nerd\Framework\ApplicationContract;
+use Nerd\Framework\Http\Request\Request;
 use Nerd\Framework\Http\Request\RequestContract;
+use Nerd\Framework\Http\Response\JsonResponse;
+use Nerd\Framework\Http\Response\PlainResponse;
 use Nerd\Framework\TestSuite\NavigatorResult\BaseResult;
 
 class Navigator implements NavigatorContract
@@ -22,51 +25,32 @@ class Navigator implements NavigatorContract
     }
 
     /**
-     * @param string $path
-     * @return NavigatorResult\BaseResultContract
+     * @param $path
+     * @param string $method
+     * @param array $data
+     * @return NavigatorResult\PlainResultContract
      */
-    public function get($path)
+    public function go($path, $method = 'GET', array $data = [])
     {
-        // TODO: Implement get() method.
-    }
-
-    /**
-     * @param string $path
-     * @param string $data
-     * @return NavigatorResult\BaseResultContract
-     */
-    public function post($path, $data)
-    {
-        // TODO: Implement post() method.
-    }
-
-    /**
-     * @param string $path
-     * @param string $data
-     * @return NavigatorResult\BaseResultContract
-     */
-    public function put($path, $data)
-    {
-        // TODO: Implement put() method.
-    }
-
-    /**
-     * @param string $path
-     * @return NavigatorResult\BaseResultContract
-     */
-    public function delete($path)
-    {
-        // TODO: Implement delete() method.
-    }
-
-    /**
-     * @param RequestContract $request
-     * @return NavigatorResult\BaseResultContract
-     */
-    public function handle(RequestContract $request)
-    {
+        $request = Request::create($path, $method, $data);
         $response = $this->application->handle($request);
 
-        return new BaseResult($response);
+        return new NavigatorResult\PlainResult($response);
+    }
+
+    /**
+     * @param $path
+     * @param string $method
+     * @param array $data
+     * @return NavigatorResult\JsonResultContract
+     */
+    public function goJson($path, $method = 'GET', array $data = [])
+    {
+        $request = Request::create($path, $method, $data);
+        $response = $this->application->handle($request);
+
+        assert($response instanceOf JsonResponse);
+
+        return new NavigatorResult\JsonResult($response);
     }
 }
