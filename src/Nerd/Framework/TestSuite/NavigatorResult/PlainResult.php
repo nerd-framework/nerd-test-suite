@@ -10,7 +10,7 @@ class PlainResult extends BaseResult implements PlainResultContract
      */
     public function contains($text)
     {
-        $this->testCase->assertContains($text, $this->response->getContents());
+        $this->testCase->assertContains($text, $this->response->getContent());
 
         return $this;
     }
@@ -21,7 +21,7 @@ class PlainResult extends BaseResult implements PlainResultContract
      */
     public function equalsTo($text)
     {
-        $this->testCase->assertEquals($text, $this->response->getContents());
+        $this->testCase->assertEquals($text, $this->response->getContent());
 
         return $this;
     }
